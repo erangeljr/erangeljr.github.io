@@ -28,6 +28,7 @@
 	});
 })();
 
-$( "#conatct-menu" ).click(function() {
-  alert( "Handler for .click() called." );
+$( "#contact-menu" ).click(function() {
+  $("#home-menu").removeClass('active');
+  $("#contact-menu").addClass('active');
 });
