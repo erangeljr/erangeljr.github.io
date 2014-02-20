@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>String Extensions using Action Delegate</title>
+        <title>Do you INVEST?</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- Bootstrap CSS -->
@@ -54,40 +54,30 @@
 	        <h1>A Day in the Life of a Full Stack Hacker</h1>
 	        <hr>
 
-  			<h2>String Extensions using Action Delegate</h2>
-<p class="meta">09 Feb 2014</p>
+  			<h2>Do you INVEST?</h2>
+<p class="meta">19 Feb 2014</p>
 
 <div class="post">
-<p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
+<p>When we look at a User Story, we try to apply the <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">I.N.V.E.S.T</a> methodology to each User Story. By ensuring that User Stories meet certain criteria, we are in a better position to estimate efforts. Most of our Agile Software Development teams use the Fibonacci Sequence to give an estimated effort of what it will take to complete the User Story. When the efforts begins to get above a certain threshold, it is typically because it does not fall within the constraits of INVEST. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
-
-    <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
-    
-    <span class="kt">var</span> <span class="n">textToLog</span> <span class="p">=</span> <span class="s">&quot;This is a log&quot;</span><span class="p">;</span>
-    
-    <span class="n">textToLog</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
-    
-    <span class="s">&quot;{0} This is a new string {1}&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;pre&quot;</span><span class="p">,</span> <span class="s">&quot;post&quot;</span><span class="p">});</span>
-<span class="p">}</span>
-
-<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span><span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Log</span><span class="p">(</span><span class="k">this</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">paramList</span> <span class="p">=</span> <span class="k">null</span><span class="p">){</span>
-        <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">;</span>
-        <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
+<div class="highlight"><pre><code class="text">I    Independent     Is it self contained?
+N   Negotiable      Can it be changed and rewritten?
+V   Valuable        Does it deliver value?
+E   Estimable       Can you estimate the size?.
+S   Small           Is it too big? Should it be broken down?
+T   Testable        Can you create tests for it?
 </code></pre></div>
 
-<p>This is what would be output to the Console.</p>
+<p>Once you&#39;re ready to begin tasking you can make sure you&#39;re being <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">S.M.A.R.T</a></p>
 
-<div class="highlight"><pre><code class="text">log this message
-This is a log
-pre This is a new string post
+<div class="highlight"><pre><code class="text">S    Specific        Do you understand what is involved?
+M   Measurable      How will you know when you&#39;re done?
+A   Achievable      Can this be done?
+R   Relevant        How is this realted?
+T   Time-boxed      How much time will it take?
 </code></pre></div>
+
+<p>The next time you have a planning meeting and you&#39;re trying to estimate your User Stories, try applying INVEST to it. It really helps to ensure you do not over commit your self or your team. Once you&#39;ve committed to a User Story, you should be able to create SMART tasks.</p>
 
 </div>
 <div>
@@ -97,11 +87,15 @@ pre This is a new string post
 		</li>
 	
 		<li>
-			hacking
+			agile
 		</li>
 	
 		<li>
-			csharp
+			scrum
+		</li>
+	
+		<li>
+			xp
 		</li>
 	
 </div>

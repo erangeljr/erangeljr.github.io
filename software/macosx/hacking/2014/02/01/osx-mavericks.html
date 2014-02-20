@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>String Extensions using Action Delegate</title>
+        <title>Maverick and the Goose</title>
         <meta name="viewport" content="width=device-width">
 
         <!-- Bootstrap CSS -->
@@ -54,54 +54,27 @@
 	        <h1>A Day in the Life of a Full Stack Hacker</h1>
 	        <hr>
 
-  			<h2>String Extensions using Action Delegate</h2>
-<p class="meta">09 Feb 2014</p>
+  			<h2>Maverick and the Goose</h2>
+<p class="meta">01 Feb 2014</p>
 
 <div class="post">
-<p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
-
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
-
-    <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
-    
-    <span class="kt">var</span> <span class="n">textToLog</span> <span class="p">=</span> <span class="s">&quot;This is a log&quot;</span><span class="p">;</span>
-    
-    <span class="n">textToLog</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
-    
-    <span class="s">&quot;{0} This is a new string {1}&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;pre&quot;</span><span class="p">,</span> <span class="s">&quot;post&quot;</span><span class="p">});</span>
-<span class="p">}</span>
-
-<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span><span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Log</span><span class="p">(</span><span class="k">this</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">paramList</span> <span class="p">=</span> <span class="k">null</span><span class="p">){</span>
-        <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">;</span>
-        <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
-    <span class="p">}</span>
-
-<span class="p">}</span>
-</code></pre></div>
-
-<p>This is what would be output to the Console.</p>
-
-<div class="highlight"><pre><code class="text">log this message
-This is a log
-pre This is a new string post
-</code></pre></div>
+<p>So, I finally upgraded the Mac Book Pro to OS X Mavericks. That&#39;s Version 10.9.1. So far it&#39;s working as anticipated. I&#39;ve been poking around
+to make sure nothing has broken. I&#39;ve ordered some RAM to take it to 16 GB&#39;s, given that I&#39;m now using this device as my primary hacking platform. I needed more
+memory to support my Virtual Machines. Happy Hacking!!</p>
 
 </div>
 <div>
 	
 		<li>
-			softwareengineering
+			software
+		</li>
+	
+		<li>
+			macosx
 		</li>
 	
 		<li>
 			hacking
-		</li>
-	
-		<li>
-			csharp
 		</li>
 	
 </div>
