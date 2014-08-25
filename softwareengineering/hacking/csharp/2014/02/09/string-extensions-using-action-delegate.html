@@ -29,7 +29,7 @@
               data-toggle="collapse"
               data-target=".navbar-collapse"><span class="glyphicon glyphicon-chevron-down"></span></button>
             <div id="logo">
-                <a href="."  class="navbar-brand">Hacker | EddieRangel.com</a>
+                <a href="http://eddierangel.com"  class="navbar-brand">Hacker | EddieRangel.com</a>
             </div>
             </div>
             <div class="navbar-collapse collapse">
@@ -39,6 +39,7 @@
                 <li id="categories-menu" class="nav"><a href="http://eddierangel.com/categories">Categories</a></li>
                 <li id="archives-menu" class="nav"><a href="http://eddierangel.com/archives">Archives</a></li>                
                 <li id="contact-menu" class="nav"><a href="http://eddierangel.com/contact.html">Contact</a></li>
+                <li id="bc-menu" class="nav"><a href="http://eddierangel.com/bc">B.C.</a></li>
             </ul>                           
             </div>      
             <a href="https://github.com/erangeljr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>   
@@ -56,6 +57,62 @@
 
   			<h2>String Extensions using Action Delegate</h2>
 <p class="meta">09 Feb 2014</p>
+<!-- <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">String Extensions using Action Delegate</h1>
+	<div class="meta">
+	<span class="date">
+
+
+
+  
+<time datetime="2014-02-09T13:48:57Z"  itemprop="datePublished">February  9, 2014</time></span>
+	<span class="tags">softwareengineering, hacking, csharp</span>
+	
+		
+  
+
+
+<span class="comments"><a href="#disqus_thread">comments</a></span>
+
+	
+	<span class="edit">
+  
+
+
+<a href="https://github.com/erangeljr/erangeljr.github.ioedit/gh-pages/_posts/2014-02-09-string-extensions-using-action-delegate.md">edit</a></span>
+</div>
+	<div class="entry-content" itemprop="articleBody"><p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    
+    <span class="kt">var</span> <span class="n">textToLog</span> <span class="p">=</span> <span class="s">&quot;This is a log&quot;</span><span class="p">;</span>
+    
+    <span class="n">textToLog</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    
+    <span class="s">&quot;{0} This is a new string {1}&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;pre&quot;</span><span class="p">,</span> <span class="s">&quot;post&quot;</span><span class="p">});</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span><span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Log</span><span class="p">(</span><span class="k">this</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">paramList</span> <span class="p">=</span> <span class="k">null</span><span class="p">){</span>
+        <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">;</span>
+        <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This is what would be output to the Console.</p>
+
+<div class="highlight"><pre><code class="text">log this message
+This is a log
+pre This is a new string post
+</code></pre></div>
+</div>
+</article> -->
 
 <div class="post">
 <p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
@@ -90,6 +147,7 @@ pre This is a new string post
 </code></pre></div>
 
 </div>
+
 <div>
 	
 		<li>
@@ -209,7 +267,7 @@ pre This is a new string post
 
   		<hr />
 	<footer class="container">
-	<p>All Rights Reserved <a href="http://www.eddierangel.com/">EddieRangel.com</a>.</p>
+	<p>All Rights Reserved <a href="http://eddierangel.com">EddieRangel.com</a>.</p>
 
 	</footer>  
 	
@@ -219,6 +277,7 @@ pre This is a new string post
 	<script type="text/javascript" src="http://eddierangel.com/js/site.js"></script> 
 
 	<!-- Google Analytics -->
+	
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -229,6 +288,8 @@ pre This is a new string post
 		ga('send', 'pageview');
 
 	</script>
+
+
         
 </div> <!-- opeing div in  header id="page" -->
 </body>

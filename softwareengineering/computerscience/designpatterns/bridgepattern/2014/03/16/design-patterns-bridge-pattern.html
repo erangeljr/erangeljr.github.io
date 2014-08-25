@@ -29,7 +29,7 @@
               data-toggle="collapse"
               data-target=".navbar-collapse"><span class="glyphicon glyphicon-chevron-down"></span></button>
             <div id="logo">
-                <a href="."  class="navbar-brand">Hacker | EddieRangel.com</a>
+                <a href="http://eddierangel.com"  class="navbar-brand">Hacker | EddieRangel.com</a>
             </div>
             </div>
             <div class="navbar-collapse collapse">
@@ -39,6 +39,7 @@
                 <li id="categories-menu" class="nav"><a href="http://eddierangel.com/categories">Categories</a></li>
                 <li id="archives-menu" class="nav"><a href="http://eddierangel.com/archives">Archives</a></li>                
                 <li id="contact-menu" class="nav"><a href="http://eddierangel.com/contact.html">Contact</a></li>
+                <li id="bc-menu" class="nav"><a href="http://eddierangel.com/bc">B.C.</a></li>
             </ul>                           
             </div>      
             <a href="https://github.com/erangeljr"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>   
@@ -56,6 +57,222 @@
 
   			<h2>Design Patterns: Bridge Pattern</h2>
 <p class="meta">16 Mar 2014</p>
+<!-- <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Design Patterns: Bridge Pattern</h1>
+	<div class="meta">
+	<span class="date">
+
+
+
+  
+<time datetime="2014-03-16T17:48:57Z"  itemprop="datePublished">March 16, 2014</time></span>
+	<span class="tags">softwareengineering, computerscience, designpatterns, bridgepattern</span>
+	
+		
+  
+
+
+<span class="comments"><a href="#disqus_thread">comments</a></span>
+
+	
+	<span class="edit">
+  
+
+
+<a href="https://github.com/erangeljr/erangeljr.github.ioedit/gh-pages/_posts/2014-03-16-design-patterns-bridge-pattern.md">edit</a></span>
+</div>
+	<div class="entry-content" itemprop="articleBody"><p>I have been learning about different <a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns</a>. I purchased the book <a href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/">Design Patterns</a> by the Gang of Four and have been going through trying to implement them using C#. </p>
+
+<p>I am going to start off with the <a href="http://en.wikipedia.org/wiki/Bridge_pattern">Bridge Pattern</a>. </p>
+
+<p>The Bridge Patterns is used to decouple an abstraction from its implementation. This will allow them to vary independently. </p>
+
+<p>Let&#39;s say you have several types of related objects that you need to print. </p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
+    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
+    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
+    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
+    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span><span class="p">{</span>
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
+    <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
+            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
+                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
+            <span class="p">}</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
+
+<p>Output: </p>
+
+<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
+<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
+</code></pre></div>
+
+<p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
+
+<p>You could then create an interface that contained a print method that each object would implement. </p>
+
+<div class="highlight"><pre><code class="csharp"> <span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
+ <span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
+ <span class="p">}</span>
+</code></pre></div>
+
+<p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
+
+<p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;</span> <span class="n">authorizations</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;();</span>
+
+        <span class="kt">var</span> <span class="n">standard</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StandardFormatter</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">executive</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExecutiveFormatter</span><span class="p">();</span>
+        <span class="kt">var</span> <span class="n">fancy</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FancyFormatter</span><span class="p">();</span>
+
+        <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
+        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
+        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
+        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
+        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pharmacyReferral</span><span class="p">);</span>
+
+        <span class="kt">var</span> <span class="n">externalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">External</span><span class="p">(</span><span class="n">executive</span><span class="p">);</span>
+        <span class="n">externalReferral</span><span class="p">.</span><span class="n">ExternalId</span> <span class="p">=</span> <span class="m">7</span><span class="p">;</span>
+        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Jim Morrison&quot;</span><span class="p">;</span>
+        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Procedures</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;757&quot;</span><span class="p">,</span> <span class="s">&quot;Evaluation&quot;</span><span class="p">);</span>
+        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">externalReferral</span><span class="p">);</span>
+
+        <span class="kt">var</span> <span class="n">internalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Internal</span><span class="p">(</span><span class="n">fancy</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Pedro De Pacas&quot;</span><span class="p">,</span>
+            <span class="n">InternalId</span> <span class="p">=</span> <span class="m">9</span><span class="p">,</span>
+            <span class="n">Symptoms</span> <span class="p">=</span> <span class="s">&quot;Flu&quot;</span>
+        <span class="p">};</span>
+
+        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">internalReferral</span><span class="p">);</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">auth</span> <span class="k">in</span> <span class="n">authorizations</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">auth</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
+I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
+<span class="p">{</span>
+
+    <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="nf">Referral</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
+    <span class="p">{</span> 
+        <span class="k">this</span><span class="p">.</span><span class="n">formatter</span> <span class="p">=</span> <span class="n">formatter</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
+<span class="p">{</span>
+    <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Now, I can create a Class that implements the IFormatter interface.</p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Here is the refactored Pharmacy class</p>
+
+<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="nf">Pharmacy</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
+        <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+    <span class="p">{</span>
+      
+        <span class="n">NationalDrugCode</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span> 
+
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
+            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
+        <span class="p">}</span>
+        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre></div>
+
+<p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
+
+<p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
+
+<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
+<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
+
+<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">External</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>     <span class="m">7</span>
+<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>      <span class="n">Jim</span> <span class="n">Morrison</span>
+<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Code</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="m">757</span>
+<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Name</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="n">Evaluation</span>
+
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span>
+</code></pre></div>
+
+<p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
+</div>
+</article> -->
 
 <div class="post">
 <p>I have been learning about different <a href="http://en.wikipedia.org/wiki/Design_Patterns">Design Patterns</a>. I purchased the book <a href="http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/">Design Patterns</a> by the Gang of Four and have been going through trying to implement them using C#. </p>
@@ -250,6 +467,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 
 </div>
+
 <div>
 	
 		<li>
@@ -373,7 +591,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
   		<hr />
 	<footer class="container">
-	<p>All Rights Reserved <a href="http://www.eddierangel.com/">EddieRangel.com</a>.</p>
+	<p>All Rights Reserved <a href="http://eddierangel.com">EddieRangel.com</a>.</p>
 
 	</footer>  
 	
@@ -383,6 +601,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 	<script type="text/javascript" src="http://eddierangel.com/js/site.js"></script> 
 
 	<!-- Google Analytics -->
+	
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -393,6 +612,8 @@ I then added an Interface I call an IFormatter to implement the variations neede
 		ga('send', 'pageview');
 
 	</script>
+
+
         
 </div> <!-- opeing div in  header id="page" -->
 </body>
