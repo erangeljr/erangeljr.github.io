@@ -1,4 +1,4 @@
 eddierangel.com
 ===============
 
-This is the Development Environment for EddieRangel.com using Jekyll and Bootstrap
+This is the Public Facing Environment for EddieRangel.com using Jekyll and Bootstrap
