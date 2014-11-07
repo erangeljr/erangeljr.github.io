@@ -54,12 +54,32 @@
 	    <div class="col-lg-8">
 
 	        <!-- the actual blog post: title/author/date/content -->
-	        <h1>A Day in the Life of a Full Stack Hacker</h1>
+	        <h1>Just Another Hacker and his Blog</h1>
 	        <hr>
 
   			<div id="home">
  <!--  <h1>Blog Posts</h1> -->
   <ul class="posts">
+    
+      <!-- <li><span>26 Oct 2014</span> &raquo; <a href="/softwareengineering/agile/scrum/xp/2014/10/26/agile-methods-project-management.html">Agile Development Methods and Project Management</a></li> -->
+		<h3>Agile Development Methods and Project Management</h3>
+		<p class="meta">26 Oct 2014</p>
+
+		<div class="post">
+		<p>I hear this a lot, “Do you use Agile?” 
+“Yes, we use Scrum”</p>
+
+<p>I believe most Development shops don’t truly understand what it means to be Agile and Scrum doesn’t accomplish what many of them think it does. I believe that a lot of teams start off using Agile with the best intentions but slowly revert back to traditional non-agile methodologies. This usually happens when things goes wrong during the Software Development Lifecycle and when the Development Teams are forced to be reactive instead of proactive. </p>
+
+<p>Many Software Development Teams work within the constraints of a non-software companies that do not understand how to develop software. Scrum is typically viewed as a fad or as a way to put off doing work. Scrum should be seen as a Project Management solution for running software development projects. Scrum includes using a product backlog, defining iterations, and using stand ups. You can even use it to better understand the roles that exist beyond titles within a team. Scrum is strictly how to define what work is going to be done and when it will be worked on. Scrum does not provide guidance on how to actually do the work.</p>
+
+<p>What inevitably happens while using scrum is that non-technical stakeholders put too much focus on the burndown chart. They seem to get tunnel vision on this one metric. The tasks created and estimated for a User Story are the development teams best guess at what it will take to complete the work. I have noticed that although the development team has every intention to focus on the work defined in their scrum, they usually have to perform some work that was neither defined nor captured. </p>
+
+<p>This additional work is also a metric that should be captured. It is directly related to defects in requirements, defects in code, and defects in design. By capturing these additional metrics a Team can better understand or explain the impact on the burndown chart. </p>
+
+<p>To summarize my thoughts, Scrum is merely a means to manage a software development project. If you’re going to focus on metrics, include more than just the hours that are completed and the hours remaining. Using additional metrics is needed to view the project status as a whole. I believe if you include additional metrics you’ll gain valuable insight into your Software Development Process. Also, just because you say you’re Agile doesn’t make you Agile. </p>
+
+		</div>
     
       <!-- <li><span>16 Mar 2014</span> &raquo; <a href="/softwareengineering/computerscience/designpatterns/bridgepattern/2014/03/16/design-patterns-bridge-pattern.html">Design Patterns: Bridge Pattern</a></li> -->
 		<h3>Design Patterns: Bridge Pattern</h3>
@@ -74,7 +94,7 @@
 
 <p>Let&#39;s say you have several types of related objects that you need to print. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
 <span class="p">{</span>
 
     <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
@@ -102,34 +122,31 @@
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
 
 <p>Output: </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
-</code></pre></div>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span></code></pre></div>
 
 <p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
 
 <p>You could then create an interface that contained a print method that each object would implement. </p>
 
-<div class="highlight"><pre><code class="csharp"> <span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
  <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
- <span class="p">}</span>
-</code></pre></div>
+ <span class="p">}</span></code></pre></div>
 
 <p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
 
 <p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
 <span class="p">{</span>
     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
     <span class="p">{</span>
@@ -167,13 +184,12 @@
 
         <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
 I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
 <span class="p">{</span>
 
     <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
@@ -189,23 +205,21 @@ I then added an Interface I call an IFormatter to implement the variations neede
 <span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Now, I can create a Class that implements the IFormatter interface.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here is the refactored Pharmacy class</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -233,14 +247,13 @@ I then added an Interface I call an IFormatter to implement the variations neede
         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
 
 <p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
@@ -252,8 +265,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span>
-</code></pre></div>
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span></code></pre></div>
 
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 
@@ -266,22 +278,20 @@ I then added an Interface I call an IFormatter to implement the variations neede
 		<div class="post">
 		<p>When we look at a User Story, we try to apply the <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">I.N.V.E.S.T</a> methodology to each User Story. By ensuring that User Stories meet certain criteria, we are in a better position to estimate efforts. Most of our Agile Software Development teams use the Fibonacci Sequence to give an estimated effort of what it will take to complete the User Story. When the efforts begins to get above a certain threshold, it is typically because it does not fall within the constraits of INVEST. </p>
 
-<div class="highlight"><pre><code class="text">I    Independent     Is it self contained?
+<div class="highlight"><pre><code class="language-text" data-lang="text">I  Independent     Is it self contained?
 N   Negotiable      Can it be changed and rewritten?
 V   Valuable        Does it deliver value?
 E   Estimable       Can you estimate the size?.
 S   Small           Is it too big? Should it be broken down?
-T   Testable        Can you create tests for it?
-</code></pre></div>
+T   Testable        Can you create tests for it?</code></pre></div>
 
 <p>Once you&#39;re ready to begin tasking you can make sure you&#39;re being <a href="http://xp123.com/articles/invest-in-good-stories-and-smart-tasks/">S.M.A.R.T</a></p>
 
-<div class="highlight"><pre><code class="text">S    Specific        Do you understand what is involved?
+<div class="highlight"><pre><code class="language-text" data-lang="text">S  Specific        Do you understand what is involved?
 M   Measurable      How will you know when you&#39;re done?
 A   Achievable      Can this be done?
 R   Relevant        How is this realted?
-T   Time-boxed      How much time will it take?
-</code></pre></div>
+T   Time-boxed      How much time will it take?</code></pre></div>
 
 <p>The next time you have a planning meeting and you&#39;re trying to estimate your User Stories, try applying INVEST to it. It really helps to ensure you do not over commit your self or your team. Once you&#39;ve committed to a User Story, you should be able to create SMART tasks.</p>
 
@@ -294,7 +304,7 @@ T   Time-boxed      How much time will it take?
 		<div class="post">
 		<p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
 <span class="p">{</span>
 
     <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
@@ -313,15 +323,13 @@ T   Time-boxed      How much time will it take?
         <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is what would be output to the Console.</p>
 
-<div class="highlight"><pre><code class="text">log this message
+<div class="highlight"><pre><code class="language-text" data-lang="text">log this message
 This is a log
-pre This is a new string post
-</code></pre></div>
+pre This is a new string post</code></pre></div>
 
 		</div>
     

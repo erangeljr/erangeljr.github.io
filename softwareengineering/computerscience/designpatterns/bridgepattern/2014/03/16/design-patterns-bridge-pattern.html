@@ -54,7 +54,7 @@
 	    <div class="col-lg-8">
 
 	        <!-- the actual blog post: title/author/date/content -->
-	        <h1>A Day in the Life of a Full Stack Hacker</h1>
+	        <h1>Just Another Hacker and his Blog</h1>
 	        <hr>
 
   			<h2>Design Patterns: Bridge Pattern</h2>
@@ -67,7 +67,7 @@
 
 
   
-<time datetime="2014-03-16T17:48:57Z"  itemprop="datePublished">March 16, 2014</time></span>
+<time datetime="2014-03-16T10:48:57-07:00"  itemprop="datePublished">March 16, 2014</time></span>
 	<span class="tags">softwareengineering, computerscience, designpatterns, bridgepattern</span>
 	
 		
@@ -91,7 +91,7 @@
 
 <p>Let&#39;s say you have several types of related objects that you need to print. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
 <span class="p">{</span>
 
     <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
@@ -119,34 +119,31 @@
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
 
 <p>Output: </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
-</code></pre></div>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span></code></pre></div>
 
 <p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
 
 <p>You could then create an interface that contained a print method that each object would implement. </p>
 
-<div class="highlight"><pre><code class="csharp"> <span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
  <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
- <span class="p">}</span>
-</code></pre></div>
+ <span class="p">}</span></code></pre></div>
 
 <p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
 
 <p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
 <span class="p">{</span>
     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
     <span class="p">{</span>
@@ -184,13 +181,12 @@
 
         <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
 I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
 <span class="p">{</span>
 
     <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
@@ -206,23 +202,21 @@ I then added an Interface I call an IFormatter to implement the variations neede
 <span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Now, I can create a Class that implements the IFormatter interface.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here is the refactored Pharmacy class</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -250,14 +244,13 @@ I then added an Interface I call an IFormatter to implement the variations neede
         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
 
 <p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
@@ -269,8 +262,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span>
-</code></pre></div>
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span></code></pre></div>
 
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 </div>
@@ -285,7 +277,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
 <p>Let&#39;s say you have several types of related objects that you need to print. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
 <span class="p">{</span>
 
     <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
@@ -313,34 +305,31 @@ I then added an Interface I call an IFormatter to implement the variations neede
             <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
 
 <p>Output: </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
-</code></pre></div>
+<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span></code></pre></div>
 
 <p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
 
 <p>You could then create an interface that contained a print method that each object would implement. </p>
 
-<div class="highlight"><pre><code class="csharp"> <span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
  <span class="p">{</span>
     <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
- <span class="p">}</span>
-</code></pre></div>
+ <span class="p">}</span></code></pre></div>
 
 <p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
 
 <p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
 <span class="p">{</span>
     <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
     <span class="p">{</span>
@@ -378,13 +367,12 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
         <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
 I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
 <span class="p">{</span>
 
     <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
@@ -400,23 +388,21 @@ I then added an Interface I call an IFormatter to implement the variations neede
 <span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Now, I can create a Class that implements the IFormatter interface.</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
     <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>Here is the refactored Pharmacy class</p>
 
-<div class="highlight"><pre><code class="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
 <span class="p">{</span>
     <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
     <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
@@ -444,14 +430,13 @@ I then added an Interface I call an IFormatter to implement the variations neede
         <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
     <span class="p">}</span>
 
-<span class="p">}</span>
-</code></pre></div>
+<span class="p">}</span></code></pre></div>
 
 <p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
 
 <p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
 
-<div class="highlight"><pre><code class="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
 <span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
 <span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
@@ -463,8 +448,7 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
 <span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span>
-</code></pre></div>
+<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span></code></pre></div>
 
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 
