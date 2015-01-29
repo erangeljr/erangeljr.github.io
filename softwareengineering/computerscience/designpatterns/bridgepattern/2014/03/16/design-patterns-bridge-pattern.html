@@ -91,178 +91,178 @@
 
 <p>Let&#39;s say you have several types of related objects that you need to print. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">void Main()
+{
 
-    <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-<span class="p">}</span>
+    var pharmacyReferral = new Pharmacy(standard);
+    pharmacyReferral.PharmacyReferralId = 9;
+    pharmacyReferral.Member = &quot;Clarence Worley&quot;;
+    pharmacyReferral.NationalDrugCode.Add(&quot;313&quot;, &quot;Medicine&quot;);
+    pharmacyReferral.Print();
+}
 
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span><span class="p">{</span>
+public class Pharmacy{
 
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    public int PharmacyReferralId { get; set; }
+    public string Member { get; set; }
+    public Dictionary&lt;string, string&gt; NationalDrugCode { get; set; }
 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
-    <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
-            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
-                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
-            <span class="p">}</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
-    <span class="p">}</span>
+    public void Print()
+    {
+            Console.WriteLine(&quot;Pharmacy Number&quot;, PharmacyReferralId.ToString()));
+            Console.WriteLine(&quot;Member&quot;, Member));
+            foreach (var drug in NationalDrugCode)
+            {
+                Console.WriteLine(&quot;Code&quot;, drug.Key));
+                Console.WriteLine(&quot;Name&quot;, drug.Value));
+            }
+            Console.WriteLine();
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
 
 <p>Output: </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
-<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
-<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">Pharmacy Number: 9
+Member: Clarence Worley
+Code: 313
+Name: Medicine</code></pre></div>
 
 <p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
 
 <p>You could then create an interface that contained a print method that each object would implement. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
- <span class="p">{</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
- <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public interface Referral
+ {
+    public void print();
+ }</code></pre></div>
 
 <p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
 
 <p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;</span> <span class="n">authorizations</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;();</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">class BridgeMain
+{
+    static void Main(string[] args)
+    {
+        List&lt;Referral&gt; authorizations = new List&lt;Referral&gt;();
 
-        <span class="kt">var</span> <span class="n">standard</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StandardFormatter</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">executive</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExecutiveFormatter</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">fancy</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FancyFormatter</span><span class="p">();</span>
+        var standard = new StandardFormatter();
+        var executive = new ExecutiveFormatter();
+        var fancy = new FancyFormatter();
 
-        <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pharmacyReferral</span><span class="p">);</span>
+        var pharmacyReferral = new Pharmacy(standard);
+        pharmacyReferral.PharmacyReferralId = 9;
+        pharmacyReferral.Member = &quot;Clarence Worley&quot;;
+        pharmacyReferral.NationalDrugCode.Add(&quot;313&quot;, &quot;Medicine&quot;);
+        authorizations.Add(pharmacyReferral);
 
-        <span class="kt">var</span> <span class="n">externalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">External</span><span class="p">(</span><span class="n">executive</span><span class="p">);</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">ExternalId</span> <span class="p">=</span> <span class="m">7</span><span class="p">;</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Jim Morrison&quot;</span><span class="p">;</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Procedures</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;757&quot;</span><span class="p">,</span> <span class="s">&quot;Evaluation&quot;</span><span class="p">);</span>
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">externalReferral</span><span class="p">);</span>
+        var externalReferral = new External(executive);
+        externalReferral.ExternalId = 7;
+        externalReferral.Member = &quot;Jim Morrison&quot;;
+        externalReferral.Procedures.Add(&quot;757&quot;, &quot;Evaluation&quot;);
+        authorizations.Add(externalReferral);
 
-        <span class="kt">var</span> <span class="n">internalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Internal</span><span class="p">(</span><span class="n">fancy</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Pedro De Pacas&quot;</span><span class="p">,</span>
-            <span class="n">InternalId</span> <span class="p">=</span> <span class="m">9</span><span class="p">,</span>
-            <span class="n">Symptoms</span> <span class="p">=</span> <span class="s">&quot;Flu&quot;</span>
-        <span class="p">};</span>
+        var internalReferral = new Internal(fancy)
+        {
+            Member = &quot;Pedro De Pacas&quot;,
+            InternalId = 9,
+            Symptoms = &quot;Flu&quot;
+        };
 
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">internalReferral</span><span class="p">);</span>
+        authorizations.Add(internalReferral);
 
-        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">auth</span> <span class="k">in</span> <span class="n">authorizations</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">auth</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-        <span class="p">}</span>
+        foreach (var auth in authorizations)
+        {
+            auth.Print();
+        }
 
-        <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+        Console.ReadKey();
+    }
+}</code></pre></div>
 
 <p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
 I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public abstract class Referral
+{
 
-    <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
+    protected readonly IFormatter formatter;
 
-    <span class="k">public</span> <span class="nf">Referral</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
-    <span class="p">{</span> 
-        <span class="k">this</span><span class="p">.</span><span class="n">formatter</span> <span class="p">=</span> <span class="n">formatter</span><span class="p">;</span>
-    <span class="p">}</span>
+    public Referral(IFormatter formatter)
+    { 
+        this.formatter = formatter;
+    }
 
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">();</span>
-<span class="p">}</span>
+    abstract public void Print();
+}
 
-<span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
-<span class="p">{</span>
-    <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+public interface IFormatter
+{
+    string Format(string key, string value);
+}</code></pre></div>
 
 <p>Now, I can create a Class that implements the IFormatter interface.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public class StandardFormatter : IFormatter
+{
+    public string Format(string key, string value)
+    {
+        return string.Format(&quot;{0}: {1}&quot;, key, value);
+    }
+}</code></pre></div>
 
 <p>Here is the refactored Pharmacy class</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public class Pharmacy : Referral
+{
+    public int PharmacyReferralId { get; set; }
+    public string Member { get; set; }
 
-    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    public Dictionary&lt;string, string&gt; NationalDrugCode { get; set; }
 
 
-    <span class="k">public</span> <span class="nf">Pharmacy</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
-        <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-    <span class="p">{</span>
+    public Pharmacy(IFormatter formatter)
+        : base(formatter)
+    {
       
-        <span class="n">NationalDrugCode</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span> 
+        NationalDrugCode = new Dictionary&lt;string, string&gt;(); 
 
-    <span class="p">}</span>
+    }
 
-    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
-        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
-        <span class="p">}</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
-    <span class="p">}</span>
+    public override void Print()
+    {
+        Console.WriteLine(formatter.Format(&quot;Pharmacy Number&quot;, PharmacyReferralId.ToString()));
+        Console.WriteLine(formatter.Format(&quot;Member&quot;, Member));
+        foreach (var drug in NationalDrugCode)
+        {
+            Console.WriteLine(formatter.Format(&quot;Code&quot;, drug.Key));
+            Console.WriteLine(formatter.Format(&quot;Name&quot;, drug.Value));
+        }
+        Console.WriteLine();
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
 
 <p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
-<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
-<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">Pharmacy Number: 9
+Member: Clarence Worley
+Code: 313
+Name: Medicine
 
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">External</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>     <span class="m">7</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>      <span class="n">Jim</span> <span class="n">Morrison</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Code</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="m">757</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Name</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="n">Evaluation</span>
+&lt;italics&gt; External Number &lt;/italics&gt;     7
+&lt;italics&gt; Member &lt;/italics&gt;      Jim Morrison
+&lt;italics&gt; Code &lt;/italics&gt;        757
+&lt;italics&gt; Name &lt;/italics&gt;        Evaluation
 
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span></code></pre></div>
+&lt;bold&gt; Internal Number &lt;/bold&gt;           9
+&lt;bold&gt; Member &lt;/bold&gt;            Pedro De Pacas
+&lt;bold&gt; Symptoms &lt;/bold&gt;          Flu</code></pre></div>
 
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 </div>
@@ -277,178 +277,178 @@ I then added an Interface I call an IFormatter to implement the variations neede
 
 <p>Let&#39;s say you have several types of related objects that you need to print. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">void Main()
+{
 
-    <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
-    <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-<span class="p">}</span>
+    var pharmacyReferral = new Pharmacy(standard);
+    pharmacyReferral.PharmacyReferralId = 9;
+    pharmacyReferral.Member = &quot;Clarence Worley&quot;;
+    pharmacyReferral.NationalDrugCode.Add(&quot;313&quot;, &quot;Medicine&quot;);
+    pharmacyReferral.Print();
+}
 
-<span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span><span class="p">{</span>
+public class Pharmacy{
 
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    public int PharmacyReferralId { get; set; }
+    public string Member { get; set; }
+    public Dictionary&lt;string, string&gt; NationalDrugCode { get; set; }
 
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
-    <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
-            <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
-            <span class="p">{</span>
-                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
-                <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
-            <span class="p">}</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
-    <span class="p">}</span>
+    public void Print()
+    {
+            Console.WriteLine(&quot;Pharmacy Number&quot;, PharmacyReferralId.ToString()));
+            Console.WriteLine(&quot;Member&quot;, Member));
+            foreach (var drug in NationalDrugCode)
+            {
+                Console.WriteLine(&quot;Code&quot;, drug.Key));
+                Console.WriteLine(&quot;Name&quot;, drug.Value));
+            }
+            Console.WriteLine();
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>This is what we would typically do. Create a Print method that handles the printing of each of the Pharmacy objects.</p>
 
 <p>Output: </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
-<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
-<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">Pharmacy Number: 9
+Member: Clarence Worley
+Code: 313
+Name: Medicine</code></pre></div>
 
 <p>Let&#39;s say you had several object that needed the same type of functionality and they were similar enough that they could share an interface.</p>
 
 <p>You could then create an interface that contained a print method that each object would implement. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">interface</span> <span class="n">Referral</span>
- <span class="p">{</span>
-    <span class="k">public</span> <span class="k">void</span> <span class="nf">print</span><span class="p">();</span>
- <span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public interface Referral
+ {
+    public void print();
+ }</code></pre></div>
 
 <p>Now each of the object you create can implement the interface. In this scenario the abstraction and implementation are tightly coupled. What if we needed somebthing a little more flexible? What if each of the object needed to be printed in a different way? You could let your objects implement there own Print methods or you can add another layer of abstraction.</p>
 
 <p>This is where you can use the Bridge Pattern to decouple the abstration from the implementation.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">class</span> <span class="nc">BridgeMain</span>
-<span class="p">{</span>
-    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;</span> <span class="n">authorizations</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">Referral</span><span class="p">&gt;();</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">class BridgeMain
+{
+    static void Main(string[] args)
+    {
+        List&lt;Referral&gt; authorizations = new List&lt;Referral&gt;();
 
-        <span class="kt">var</span> <span class="n">standard</span> <span class="p">=</span> <span class="k">new</span> <span class="n">StandardFormatter</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">executive</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ExecutiveFormatter</span><span class="p">();</span>
-        <span class="kt">var</span> <span class="n">fancy</span> <span class="p">=</span> <span class="k">new</span> <span class="n">FancyFormatter</span><span class="p">();</span>
+        var standard = new StandardFormatter();
+        var executive = new ExecutiveFormatter();
+        var fancy = new FancyFormatter();
 
-        <span class="kt">var</span> <span class="n">pharmacyReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Pharmacy</span><span class="p">(</span><span class="n">standard</span><span class="p">);</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">PharmacyReferralId</span> <span class="p">=</span> <span class="m">9</span><span class="p">;</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Clarence Worley&quot;</span><span class="p">;</span>
-        <span class="n">pharmacyReferral</span><span class="p">.</span><span class="n">NationalDrugCode</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;313&quot;</span><span class="p">,</span> <span class="s">&quot;Medicine&quot;</span><span class="p">);</span>
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pharmacyReferral</span><span class="p">);</span>
+        var pharmacyReferral = new Pharmacy(standard);
+        pharmacyReferral.PharmacyReferralId = 9;
+        pharmacyReferral.Member = &quot;Clarence Worley&quot;;
+        pharmacyReferral.NationalDrugCode.Add(&quot;313&quot;, &quot;Medicine&quot;);
+        authorizations.Add(pharmacyReferral);
 
-        <span class="kt">var</span> <span class="n">externalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">External</span><span class="p">(</span><span class="n">executive</span><span class="p">);</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">ExternalId</span> <span class="p">=</span> <span class="m">7</span><span class="p">;</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Jim Morrison&quot;</span><span class="p">;</span>
-        <span class="n">externalReferral</span><span class="p">.</span><span class="n">Procedures</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="s">&quot;757&quot;</span><span class="p">,</span> <span class="s">&quot;Evaluation&quot;</span><span class="p">);</span>
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">externalReferral</span><span class="p">);</span>
+        var externalReferral = new External(executive);
+        externalReferral.ExternalId = 7;
+        externalReferral.Member = &quot;Jim Morrison&quot;;
+        externalReferral.Procedures.Add(&quot;757&quot;, &quot;Evaluation&quot;);
+        authorizations.Add(externalReferral);
 
-        <span class="kt">var</span> <span class="n">internalReferral</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Internal</span><span class="p">(</span><span class="n">fancy</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Member</span> <span class="p">=</span> <span class="s">&quot;Pedro De Pacas&quot;</span><span class="p">,</span>
-            <span class="n">InternalId</span> <span class="p">=</span> <span class="m">9</span><span class="p">,</span>
-            <span class="n">Symptoms</span> <span class="p">=</span> <span class="s">&quot;Flu&quot;</span>
-        <span class="p">};</span>
+        var internalReferral = new Internal(fancy)
+        {
+            Member = &quot;Pedro De Pacas&quot;,
+            InternalId = 9,
+            Symptoms = &quot;Flu&quot;
+        };
 
-        <span class="n">authorizations</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">internalReferral</span><span class="p">);</span>
+        authorizations.Add(internalReferral);
 
-        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">auth</span> <span class="k">in</span> <span class="n">authorizations</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">auth</span><span class="p">.</span><span class="n">Print</span><span class="p">();</span>
-        <span class="p">}</span>
+        foreach (var auth in authorizations)
+        {
+            auth.Print();
+        }
 
-        <span class="n">Console</span><span class="p">.</span><span class="n">ReadKey</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+        Console.ReadKey();
+    }
+}</code></pre></div>
 
 <p>Here I refactored the Referral Class from being an Interface to an Abstract Class and created an Abstract public method. 
 I then added an Interface I call an IFormatter to implement the variations needed for each type of Referral.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">abstract</span> <span class="k">class</span> <span class="nc">Referral</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public abstract class Referral
+{
 
-    <span class="k">protected</span> <span class="k">readonly</span> <span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">;</span>
+    protected readonly IFormatter formatter;
 
-    <span class="k">public</span> <span class="nf">Referral</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
-    <span class="p">{</span> 
-        <span class="k">this</span><span class="p">.</span><span class="n">formatter</span> <span class="p">=</span> <span class="n">formatter</span><span class="p">;</span>
-    <span class="p">}</span>
+    public Referral(IFormatter formatter)
+    { 
+        this.formatter = formatter;
+    }
 
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">();</span>
-<span class="p">}</span>
+    abstract public void Print();
+}
 
-<span class="k">public</span> <span class="k">interface</span> <span class="n">IFormatter</span>
-<span class="p">{</span>
-    <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">);</span>
-<span class="p">}</span></code></pre></div>
+public interface IFormatter
+{
+    string Format(string key, string value);
+}</code></pre></div>
 
 <p>Now, I can create a Class that implements the IFormatter interface.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">StandardFormatter</span> <span class="p">:</span> <span class="n">IFormatter</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="nf">Format</span><span class="p">(</span><span class="kt">string</span> <span class="n">key</span><span class="p">,</span> <span class="kt">string</span> <span class="k">value</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;{0}: {1}&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="k">value</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span></code></pre></div>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public class StandardFormatter : IFormatter
+{
+    public string Format(string key, string value)
+    {
+        return string.Format(&quot;{0}: {1}&quot;, key, value);
+    }
+}</code></pre></div>
 
 <p>Here is the refactored Pharmacy class</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">public</span> <span class="k">class</span> <span class="nc">Pharmacy</span> <span class="p">:</span> <span class="n">Referral</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="kt">int</span> <span class="n">PharmacyReferralId</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
-    <span class="k">public</span> <span class="kt">string</span> <span class="n">Member</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">public class Pharmacy : Referral
+{
+    public int PharmacyReferralId { get; set; }
+    public string Member { get; set; }
 
-    <span class="k">public</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;</span> <span class="n">NationalDrugCode</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+    public Dictionary&lt;string, string&gt; NationalDrugCode { get; set; }
 
 
-    <span class="k">public</span> <span class="nf">Pharmacy</span><span class="p">(</span><span class="n">IFormatter</span> <span class="n">formatter</span><span class="p">)</span>
-        <span class="p">:</span> <span class="k">base</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-    <span class="p">{</span>
+    public Pharmacy(IFormatter formatter)
+        : base(formatter)
+    {
       
-        <span class="n">NationalDrugCode</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">&gt;();</span> 
+        NationalDrugCode = new Dictionary&lt;string, string&gt;(); 
 
-    <span class="p">}</span>
+    }
 
-    <span class="k">public</span> <span class="k">override</span> <span class="k">void</span> <span class="nf">Print</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Pharmacy Number&quot;</span><span class="p">,</span> <span class="n">PharmacyReferralId</span><span class="p">.</span><span class="n">ToString</span><span class="p">()));</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Member&quot;</span><span class="p">,</span> <span class="n">Member</span><span class="p">));</span>
-        <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">drug</span> <span class="k">in</span> <span class="n">NationalDrugCode</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Code&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Key</span><span class="p">));</span>
-            <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">formatter</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span><span class="s">&quot;Name&quot;</span><span class="p">,</span> <span class="n">drug</span><span class="p">.</span><span class="n">Value</span><span class="p">));</span>
-        <span class="p">}</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">();</span>
-    <span class="p">}</span>
+    public override void Print()
+    {
+        Console.WriteLine(formatter.Format(&quot;Pharmacy Number&quot;, PharmacyReferralId.ToString()));
+        Console.WriteLine(formatter.Format(&quot;Member&quot;, Member));
+        foreach (var drug in NationalDrugCode)
+        {
+            Console.WriteLine(formatter.Format(&quot;Code&quot;, drug.Key));
+            Console.WriteLine(formatter.Format(&quot;Name&quot;, drug.Value));
+        }
+        Console.WriteLine();
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>We can then create custom Formatters to handle different formats for printing out our objects. </p>
 
 <p>Here&#39;s the output for the different formatters I used for each of the objects that inherit the Abstract Class which implemnt the Interface. </p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="n">Pharmacy</span> <span class="n">Number</span><span class="p">:</span> <span class="m">9</span>
-<span class="n">Member</span><span class="p">:</span> <span class="n">Clarence</span> <span class="n">Worley</span>
-<span class="n">Code</span><span class="p">:</span> <span class="m">313</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Medicine</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">Pharmacy Number: 9
+Member: Clarence Worley
+Code: 313
+Name: Medicine
 
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">External</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>     <span class="m">7</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>      <span class="n">Jim</span> <span class="n">Morrison</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Code</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="m">757</span>
-<span class="p">&lt;</span><span class="n">italics</span><span class="p">&gt;</span> <span class="n">Name</span> <span class="p">&lt;/</span><span class="n">italics</span><span class="p">&gt;</span>        <span class="n">Evaluation</span>
+&lt;italics&gt; External Number &lt;/italics&gt;     7
+&lt;italics&gt; Member &lt;/italics&gt;      Jim Morrison
+&lt;italics&gt; Code &lt;/italics&gt;        757
+&lt;italics&gt; Name &lt;/italics&gt;        Evaluation
 
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Internal</span> <span class="n">Number</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>           <span class="m">9</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Member</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>            <span class="n">Pedro</span> <span class="n">De</span> <span class="n">Pacas</span>
-<span class="p">&lt;</span><span class="n">bold</span><span class="p">&gt;</span> <span class="n">Symptoms</span> <span class="p">&lt;/</span><span class="n">bold</span><span class="p">&gt;</span>          <span class="n">Flu</span></code></pre></div>
+&lt;bold&gt; Internal Number &lt;/bold&gt;           9
+&lt;bold&gt; Member &lt;/bold&gt;            Pedro De Pacas
+&lt;bold&gt; Symptoms &lt;/bold&gt;          Flu</code></pre></div>
 
 <p>I used the HTML tags for demonstration purposes only. I wanted a way to convey that you could apply style or whatever you wanted. Since this is just a Console Application demo, I&#39;m kind of limited on what I can display. Either way. Hope you enjoyed my working example. Don&#39;t forget to check out the whole project on <a href="https://github.com/erangeljr/DesignPatterns/tree/master/BridgePattern">Github.</a></p>
 

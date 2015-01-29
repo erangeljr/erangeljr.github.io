@@ -85,26 +85,26 @@
 </div>
 	<div class="entry-content" itemprop="articleBody"><p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">void Main()
+{
 
-    <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    &quot;log this message&quot;.Log();
     
-    <span class="kt">var</span> <span class="n">textToLog</span> <span class="p">=</span> <span class="s">&quot;This is a log&quot;</span><span class="p">;</span>
+    var textToLog = &quot;This is a log&quot;;
     
-    <span class="n">textToLog</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    textToLog.Log();
     
-    <span class="s">&quot;{0} This is a new string {1}&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;pre&quot;</span><span class="p">,</span> <span class="s">&quot;post&quot;</span><span class="p">});</span>
-<span class="p">}</span>
+    &quot;{0} This is a new string {1}&quot;.Log(new[] {&quot;pre&quot;, &quot;post&quot;});
+}
 
-<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span><span class="p">{</span>
+public static class StringExtensions{
 
-    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Log</span><span class="p">(</span><span class="k">this</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">paramList</span> <span class="p">=</span> <span class="k">null</span><span class="p">){</span>
-        <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">;</span>
-        <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
-    <span class="p">}</span>
+    public static void Log(this string message, string[] paramList = null){
+        Action&lt;string, string[]&gt; log = Console.WriteLine;
+        log(message, paramList);
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>This is what would be output to the Console.</p>
 
@@ -117,26 +117,26 @@ pre This is a new string post</code></pre></div>
 <div class="post">
 <p>I was introduced to an Action Delegate on Friday. An Action Delegate encapsulates a method that has no parameters and does not return a value. In this example it will encapsulate a method that has two parameters, a string and a string array. My example Extends the string data type to include a Log Method that writes the string to the Console. You could modify this to write to a Log File.</p>
 
-<div class="highlight"><pre><code class="language-csharp" data-lang="csharp"><span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
-<span class="p">{</span>
+<div class="highlight"><pre><code class="language-csharp" data-lang="csharp">void Main()
+{
 
-    <span class="s">&quot;log this message&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    &quot;log this message&quot;.Log();
     
-    <span class="kt">var</span> <span class="n">textToLog</span> <span class="p">=</span> <span class="s">&quot;This is a log&quot;</span><span class="p">;</span>
+    var textToLog = &quot;This is a log&quot;;
     
-    <span class="n">textToLog</span><span class="p">.</span><span class="n">Log</span><span class="p">();</span>
+    textToLog.Log();
     
-    <span class="s">&quot;{0} This is a new string {1}&quot;</span><span class="p">.</span><span class="n">Log</span><span class="p">(</span><span class="k">new</span><span class="p">[]</span> <span class="p">{</span><span class="s">&quot;pre&quot;</span><span class="p">,</span> <span class="s">&quot;post&quot;</span><span class="p">});</span>
-<span class="p">}</span>
+    &quot;{0} This is a new string {1}&quot;.Log(new[] {&quot;pre&quot;, &quot;post&quot;});
+}
 
-<span class="k">public</span> <span class="k">static</span> <span class="k">class</span> <span class="nc">StringExtensions</span><span class="p">{</span>
+public static class StringExtensions{
 
-    <span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">Log</span><span class="p">(</span><span class="k">this</span> <span class="kt">string</span> <span class="n">message</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]</span> <span class="n">paramList</span> <span class="p">=</span> <span class="k">null</span><span class="p">){</span>
-        <span class="n">Action</span><span class="p">&lt;</span><span class="kt">string</span><span class="p">,</span> <span class="kt">string</span><span class="p">[]&gt;</span> <span class="n">log</span> <span class="p">=</span> <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">;</span>
-        <span class="n">log</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">paramList</span><span class="p">);</span>
-    <span class="p">}</span>
+    public static void Log(this string message, string[] paramList = null){
+        Action&lt;string, string[]&gt; log = Console.WriteLine;
+        log(message, paramList);
+    }
 
-<span class="p">}</span></code></pre></div>
+}</code></pre></div>
 
 <p>This is what would be output to the Console.</p>
 
