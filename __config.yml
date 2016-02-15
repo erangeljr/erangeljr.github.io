@@ -1,0 +1,22 @@
+# Site settings
+title: Just Another Hacker....and his blog
+# header-img: 
+email: hacker@eddierangel.com
+description: "This is my blog. There are many like it but this one is mine."
+baseurl: ""
+url: "http://eddierangel.com"
+twitter_username: eddie_31003
+github_username:  erangeljr
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+gems: [jekyll-paginate]
+
+analytics :
+  provider : google
+  google : 
+      tracking_id : 'UA-'
