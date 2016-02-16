@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Just Another Hacker"
 author: Eddie Rangel
+title: "Just Another Hacker"
 subtitle: "...and his blog"
 category: Software
 tags: [Ghost]
