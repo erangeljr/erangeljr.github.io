@@ -19,4 +19,4 @@ gems: [jekyll-paginate]
 analytics :
   provider : google
   google : 
-      tracking_id : 'UA-72408475-1'
+      tracking_id : 'UA'
