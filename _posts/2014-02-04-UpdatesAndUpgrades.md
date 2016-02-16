@@ -1,5 +1,6 @@
 ---
 layout: post
+author: "Eddie Rangel"
 title:  "Updates and Upgrades"
 date:   2014-02-04 13:48:57
 comments: true

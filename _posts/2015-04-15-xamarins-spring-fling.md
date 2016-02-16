@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Xamarin's Spring fling"
-author: Eddie Rangel
+author: "Eddie Rangel"
 subtitle: "Lets get together"
 category: Software
 tags: [Xamarin, Jekyll, GitHub]

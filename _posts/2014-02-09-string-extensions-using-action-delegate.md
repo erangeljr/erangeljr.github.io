@@ -1,5 +1,6 @@
 ---
 layout: post
+author: "Eddie Rangel"
 title:  "String Extensions using Action Delegate"
 date:   2014-02-09 13:48:57
 comments: true

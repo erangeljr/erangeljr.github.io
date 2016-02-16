@@ -1,6 +1,6 @@
 ---
 layout: post
-author: Eddie Rangel
+author: "Eddie Rangel"
 title: "Just Another Hacker"
 subtitle: "...and his blog"
 category: Software

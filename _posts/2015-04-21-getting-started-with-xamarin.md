@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Getting started with Xamarin"
-author: Eddie Rangel
+author: "Eddie Rangel"
 subtitle: "and introduction"
 category: Software
 tags: [Xamarin, C#]

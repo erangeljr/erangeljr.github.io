@@ -1,5 +1,6 @@
 ---
 layout: post
+author: "Eddie Rangel"
 title:  "Design Patterns: Bridge Pattern"
 date:   2014-03-16 17:48:57
 comments: true

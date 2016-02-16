@@ -1,5 +1,6 @@
 ---
 layout: post
+author: "Eddie Rangel"
 title:  "Do you INVEST?"
 date:   2014-02-19 13:48:57
 comments: true

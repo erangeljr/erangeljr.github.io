@@ -1,5 +1,6 @@
 ---
 layout: post
+author: "Eddie Rangel"
 title:  "Agile Development Methods and Project Management"
 date:   2014-10-26 13:48:57
 comments: true

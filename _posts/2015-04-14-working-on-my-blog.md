@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Working on my blog"
-author: Eddie Rangel
+author: "Eddie Rangel"
 subtitle: "Trying to build me up"
 category: Software
 tags: [GitHubPages, Jekyll, GitHub]

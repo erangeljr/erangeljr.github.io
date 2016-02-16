@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Another year has gond"
-author: Eddie Rangel
+author: "Eddie Rangel"
 subtitle: "it's not you, it's me."
 category: Software
 tags: [GitHubPages, Jekyll, Ghost]
