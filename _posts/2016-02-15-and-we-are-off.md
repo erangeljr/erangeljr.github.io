@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "And we are off"
+title: "And we're off"
 author: Eddie Rangel
-subtitle: "getting my GitHub page online"
-category: sotware
-tags: [Layout, Performance]
+subtitle: "Getting GitHub pages back together"
+category: Software
+tags: [GitHubPages, Jekyll, GitHub]
 ---

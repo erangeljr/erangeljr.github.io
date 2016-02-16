@@ -1,10 +1,10 @@
 # Site settings
-title: EddieRangel dot com
+title: Eddie Rangel dot com
 header-img: img/home-bg.jpg
 email: hacker@eddierangel.com
-description: "This is my blog. There are many like it but this one is mine."
+description: "...and his Blog"
 baseurl: ""
-url: "http://eddierangel.com"
+url: "http://edierangel.com"
 twitter_username: eddie_31003
 github_username:  erangeljr
 
@@ -19,4 +19,4 @@ gems: [jekyll-paginate]
 analytics :
   provider : google
   google : 
-      tracking_id : 'UA-'
+      tracking_id : 'UA-72408475-1'
