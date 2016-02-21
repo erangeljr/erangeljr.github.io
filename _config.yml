@@ -7,6 +7,7 @@ baseurl: ""
 url: "http://edierangel.com"
 twitter_username: eddie_31003
 github_username:  erangeljr
+linkedin_username: eddierangel
 
 # Build settings
 markdown: kramdown
