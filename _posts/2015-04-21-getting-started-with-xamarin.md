@@ -7,19 +7,19 @@ category: Software
 tags: [Xamarin, C#]
 ---
 
-#####An Introduction
+<h3>An Introduction</h3>
 Over the next several weeks I will be writing several blog posts that will provide an introduction to Cross Platform Development with Xamarin. This will be my first post in the series. 
 
-#####What is Xamarin?
+<h3>What is Xamarin?</h3>
 [Xamarin](http://www.xamarin.com) is a suite of application tools that allow you to build cross-platform applications. Xamarin uses an open source implementation of the .Net Framework, [Mono](http://www.mono-project.com/). Mono provides a set of Base Class Libraries that provide the foundation which an application can be built. Mono also includes a set of Mono Class Libraries that go beyond what the BCL's provide.
 
 From a developers perspective, you can leverage your knowledge of the C# Programming language and the .Net Framework to build native applications across iOS, Android, Mac, and Windows. 
 
-#####How to get started?
+<h3>How to get started?</h3>
 You can start by downloading the Xamarin Platform for either OS X or Windows from their [download](https://xamarin.com/download) page. You'll have to provide them some details. They offer a pricing tier which ranges from free for a Starter Edition to an Enterprise Edition for under $1900. They also offer [Student](https://xamarin.com/student) license, so if you're a student make you fill out their student form. 
 
 
-#####Hello World an iOS App
+<h3>Hello World an iOS App</h3>
 For this demonstration you will need at least the Indie license given that we will be building a Xamarin Forms app. Also, I will be using Xamarin Studio on OS X Yosemite so this means you will need XCode installed. To build an iOS App, a Mac is a prerequisite. However, If you're only concerned with Android you could go through this demo on a Windows Desktop. You will need to do some additional work to configure [Android Player](https://xamarin.com/android-player). Although it's still in Beta, it works fine for our Demo. Feel free to give it a whirl.
 
 * Launch Xamarin Studio from the Launchpad
