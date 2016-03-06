@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Beginnin C# and .Net Coref"
+title: "Beginning C# and .Net Core"
 author: "Eddie Rangel"
 subtitle: "building an open curriculum"
 category: Software
