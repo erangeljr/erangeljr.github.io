@@ -4,7 +4,7 @@ title: "Buena Health"
 author: "Eddie Rangel"
 subtitle: "personal health management"
 category: Software Engineering
-tags: [Xamarin, C#, Xamarin Forms]
+tags: [Xamarin, C#, Xamarin Forms, Xamarin.Android]
 ---
 
 I built Buena Healh for several reasons. The main ones were to help give me

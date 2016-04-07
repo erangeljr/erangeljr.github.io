@@ -18,5 +18,5 @@ However, I need an IT Dept. to manage it. With that said, not all of the courses
 to warrent a moodle component. 
 
 I am committed to trying to fix this pain point for me and for the many part-time and full-time teachers who
-want more control over their courses. 
+want more control over their courses with out the hassles of system administration.
 
